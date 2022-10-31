@@ -1,0 +1,55 @@
+./ This is the manpage of the _printf function
+.TH _printf 3
+.DD 10/31/2022
+
+.SH NAME
+.B _printf 
+\
+- format and print data
+
+.SH SYNOPSIS
+.B #include main.h
+.B _printf(const char * 
+.I format
+.B , ...);
+
+.SH DESCRIPTION
+The function 
+.B _printf 
+mimics the operations of the classic 
+.B printf( )
+, without using the standard library. The 
+.B _printf 
+function’s purpose is to produce output to 
+.I stdout
+based on the conversion specifiers utilized, which are identified below.
+
+.SH CONVERSION SPECIFIERS
+Conversion specifiers define how arguments will be converted for output. The character % is followed by zero or more of the following specifiers:
+.IP d,i
+Print a signed integer.
+.IP s
+Print a string, up to but not including the null terminating byte ‘\\0’.
+.IP c
+Print a character.
+
+.SH RETURN VALUE
+Upon successful return, the
+.B _printf
+function will return the number of characters printed. 
+.PP
+In the event of failure or error, a negative value is returned.
+
+.SH EXAMPLE
+To print a date “Monday, October 31, 2022” where
+.I weekday
+and
+.I month
+are pointers to strings:
+.IP
+#include “main.h”
+.IP
+_printf(stdout, “%s, %s %d, %d”, weekday, month, day, year);
+
+.SH AUTHOR
+Written by Lindsey Thomas.
