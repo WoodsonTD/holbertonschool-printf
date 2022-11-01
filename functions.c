@@ -46,16 +46,46 @@ int print_int(va_list ap)
 	return (print_unsigned_int(n));
 }
 /**
+ * _pow_recursion - returns value of x raised
+ * to the power of y
+ * @x: int
+ * @y: int for power
+ * Return: value of x^y
+*/
+
+int _pow_recursion(int x, int y)
+{
+	if (y == 0)
+	{
+		return (1);
+	}
+	if (y < 0)
+	{
+		return (-1);
+	}
+	else
+		return (x * _pow_recursion(x, y - 1));
+}
+/**
  * print_unsigned_int - prints unsigned integers
  * @n: unsigned integers to print
  * Return: adds 1 in each recursion, adding up ot the number of digits printed
  */
 int print_unsigned_int(unsigned int n)
 {
-	int c = 0;
+	int i;
+	int len = 1;
+	unsigned int n_cpy = (n / 10);
 
-	if (n / 10 != 0)
-		c = print_unsigned_int(n / 10);
-	putchar((n % 10) + '0');
-	return (1 + c);
+	while (n_cpy > 0)
+	{
+		len++;
+		n_cpy = (n_cpy / 10);
+	}
+	for (i = len - 1; i >= 0; i--)
+	{
+		_putchar(n / _pow_recursion(10, i) + '0');
+		n = (n % _pow_recursion(10, i));
+	}
+	return (len);
 }
