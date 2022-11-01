@@ -40,7 +40,7 @@ int print_int(va_list ap)
 	n = va_arg(ap, int);
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		return (print_unsigned_int(-n) + 1);
 	}
 	return (print_unsigned_int(n));
