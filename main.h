@@ -11,10 +11,18 @@
 
 /* structures */
 
+/**
+ * struct format - struct that contains va_list
+ * @let: character
+ * @func: pointer to function
+ *
+ * Return: 0 success
+*/
+
 typedef struct format
 {
-        char *let;
-        int (*func)(va_list ap);
+	char *let;
+	int (*func)(va_list ap);
 } format_t;
 
 /* prototypes */
